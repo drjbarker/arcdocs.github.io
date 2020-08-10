@@ -24,6 +24,14 @@
 
 # ===== Software ==========================================
 - file: software/start
+  sections:
+    - file: software/applications
+      sections:
+        - file: software/applications/ansys
+    - file: software/libraries
+      sections:
+        - file: software/libraries/template
+
 
 # ===== Systems ==========================================
 - file: systems/start

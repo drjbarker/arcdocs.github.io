@@ -21,3 +21,8 @@ module avail
 If you require additional software or applications installing, please contact us
 
 Alternatively, we can give you support in compiling or installing software yourself.
+
+Find details on:
+
+- [Applications](./applications)
+- [Libraries](./libraries)
