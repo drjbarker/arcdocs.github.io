@@ -24,10 +24,17 @@
 
 # ===== Software ==========================================
 - file: software/start
+  expand_sections: false
   sections:
     - file: software/applications
+      expand_sections: false
       sections:
         - file: software/applications/ansys
+          expand_sections: false
+          sections:
+            - file: software/applications/ansys/fluent
+            - file: software/applications/ansys/cfx
+            - file: software/applications/ansys/chemkin
     - file: software/libraries
       sections:
         - file: software/libraries/template
