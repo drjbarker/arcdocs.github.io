@@ -10,5 +10,6 @@ dependencies:
   - matplotlib
   - pip=20
   - pip:
-    - jupyter-book
+    - jupyter-book==0.7.1
+    - sphinx-book-theme==0.0.30
     - ghp-import
