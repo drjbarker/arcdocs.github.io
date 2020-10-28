@@ -36,23 +36,28 @@
 # ===== Software ==========================================
 - file: software/start
   sections:
-    - file: software/abaqus.md
-    - file: software/amber.md
-    - file: software/ansys.md
-    - file: software/comsol.md
-    - file: software/dl_poly.md
-    - file: software/gaussian.md
-    - file: software/gromacs.md
-    - file: software/idl.md
-    - file: software/matlab.md
-    - file: software/molpro.md
-    - file: software/namd.md
-    - file: software/openfoam.md
-    - file: software/paraview.md
-    - file: software/R.md
-    - file: software/stata.md
-    - file: software/visit.md
-    - file: software/vmd.md
+    - file: software/applications/start
+      sections:
+      - file: software/applications/abaqus
+      - file: software/applications/amber
+      - file: software/applications/ansys
+      - file: software/applications/comsol
+      - file: software/applications/dl_poly
+      - file: software/applications/gaussian
+      - file: software/applications/gromacs
+      - file: software/applications/idl
+      - file: software/applications/matlab
+      - file: software/applications/molpro
+      - file: software/applications/namd
+      - file: software/applications/openfoam
+      - file: software/applications/paraview
+      - file: software/applications/R
+      - file: software/applications/stata
+      - file: software/applications/visit
+      - file: software/applications/vmd
+    - file: software/compilers/start
+    - file: software/infrastructure/start
+    - file: software/libraries/start
 
 # ===== Systems ==========================================
 - file: systems/start
