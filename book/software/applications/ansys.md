@@ -1,35 +1,30 @@
 # Ansys
-    
-Versions of Ansys Fluent and CFX are installed for Leeds researchers who
-have access to either their own or a departmental license. This supports
-the Infiniband interconnect so can be used for jobs of \>16 (for ARC2)
-or \>24 (for ARC3) processors in size.
 
-Information on Ansys can be found on the Ansys web site:\
-<http://www.ansys.com/en-GB>
+Versions of Ansys Fluent and CFX are installed for Leeds researchers who have access to either their own or a departmental license. This supports the Infiniband interconnect so can be used for jobs of \>24 (for ARC3) or \>40 (for ARC4) processors in size.
 
+Information on Ansys can be found on the [Ansys web site](http://www.ansys.com/en-GB).
 
 ## Setting up the license
 
-The license is obtained by setting the
-[ANSYSLMD\_LICENSE\_FILE]
-variable. To set it in bash do:\
-`$ export ANSYSLMD_LICENSE_FILE=<port>@<host>`\
-If accessing for the first time, there is an additional step (see the
-next section on this page) required to choose whether you are using
-commercial or academic licenses. To get the values of
-[\<port\>@\<host\>] specific
-to your group/department please contact the Client IT Team via [Service
-Now](https://leeds.service-now.com/it).
+The license is obtained by setting the `ANSYSLMD_LICENSE_FILE` variable. To set it in bash do:
+
+```bash
+$ export ANSYSLMD_LICENSE_FILE=<port>@<host>
+```
+
+If accessing for the first time, there is an additional step (see the next section on this page) required to choose whether you are using commercial or academic licenses. To get the values of `<port>@<host>` specific to your group/department please contact the Client IT Team via [Service Now](https://leeds.service-now.com/it).
 
 To make Ansys Fluent and CFX available for use:
 
-    $ module add ansys
+```bash
+$ module add ansys
+```
 
 To load a specific version of Ansys, specify this on the module command
-i.e.:
 
-    $ module add ansys/17.1
+```bash
+$ module add ansys/17.1
+```
 
 ### [Running Fluent](https://arc.leeds.ac.uk/software/applications/ansys/fluent)
 
