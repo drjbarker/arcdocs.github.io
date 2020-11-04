@@ -41,6 +41,10 @@
       - file: software/applications/abaqus
       - file: software/applications/amber
       - file: software/applications/ansys
+        sections:
+        - file: software/applications/ansys/cfx
+        - file: software/applications/ansys/fluent
+        - file: software/applications/ansys/chemkin
       - file: software/applications/comsol
       - file: software/applications/dl_poly
       - file: software/applications/gaussian
