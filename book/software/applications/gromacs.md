@@ -1,23 +1,28 @@
-# Gromacs 
+# Gromacs
 
-## Introduction 
+## Introduction
+
 Gromacs is freely available and open source software.
 
 ## Setting the module environment
 
 A number of versions of Gromacs are available on the facility.
 
-To set up the environment, when you log in, use (for example):
+To load gromacs into your environment when you log in, use (for example):
 
-    $ module add gromacs/4.5.3
+```bash
+$ module add gromacs/4.5.3
+```
 
-To add the executables for this specific version to your environment.
+This will now provide you with access to the gromacs executeables from the command line.
 
-Alternatively:
+Alternatively you can load the default version of gromacs installed on ARC with the command:
 
-    $ module add gromacs
+```bash
+$ module add gromacs
+```
 
-Will add the executables for the default 4.6.3 version.
+Will load the executables for the default 4.6.3 version.
 
 ## Executable naming conventions
 
@@ -35,56 +40,52 @@ However, the naming convention for `Gromacs` versions below `4.6.3` are a little
 |Executable               |Description
 |-------------------------|--------------------------
 |`mdrun.MPI`              |single precision, parallel MPI executable
-|`mdrun_d.MPI`            |double precision, parallel MPI executable
+|`mdrun_d.MPI`           |double precision, parallel MPI executable
 
-There are also single/double precision versions of the tools that come
-with the application, with the same naming scheme as above. For more
-information look at the [Gromacs](http://www.gromacs.org/) homepage and
-at the [Gromacs documentation](http://www.gromacs.org/Documentation).
+There are also single/double precision versions of the tools that come with the application, with the same naming scheme as above. For more information look at the [Gromacs](http://www.gromacs.org/) homepage and at the [Gromacs documentation](http://www.gromacs.org/Documentation).
 
 ## Batch execution
 
 ### Serial execution
 
-An example script, `example_serial.sh` , looks like:
+An example job submission script (`example_serial.sh`) that runs a gromacs executeable is shown below:
 
-    #!/bin/bash
-    #$ -cwd -V 
-    # request 10 hours of runtime
-    #$ -l h_rt=10:00:00
-    mdrun_d  [...]
+```bash
+#!/bin/bash
+#$ -cwd -V 
+# request 10 hours of runtime
+#$ -l h_rt=10:00:00
+mdrun_d  <args>
+```
 
-This requests 10 hours of runtime, to run in the current directory(`-cwd`) and using the
-current environment (`-V`),
-using the double precision version of mdrun, and where
-`[...]` represents the
-arguments to mdrun. More memory per core can be requested, 2Gb for
-instance, by adding the line `#$ -l h_vmem=2G` to the script. For more options look at
-[Batch jobs](../usage/batchjob).
+This requests 10 hours of runtime, to run in the current directory `-cwd` and using the current environment `-V`, using the double precision version of mdrun, and where `<args>` represents the arguments to mdrun. More memory per core can be requested, 2Gb for instance, by adding the line `#$ -l h_vmem=2G` to the script. You can find more submission options on the [batch job page](../../usage/batchjob.html#list-of-sge-options).
+
 The script can be submitted with:
 
-    $ qsub example_serial.sh
+```bash
+$ qsub example_serial.sh
+```
 
 ## Parallel execution
 
-For the parallel version, an example script, `example_parallel.sh` will take
-the form:
+An example submission script (`example_parallel.sh`) looking to use the parallel executeable is shown below:
 
-    #!/bin/bash
-    #$ -cwd -V 
-    # request 10 hours of runtime
-    #$ -l h_rt=10:00:00
-    # request 4 cores
-    #$ -pe ib 4
-    mpirun mdrun_mpi_d 
+```bash
+#!/bin/bash
+#$ -cwd -V
+# request 10 hours of runtime
+#$ -l h_rt=10:00:00
+# request 4 cores
+#$ -pe ib 4
+mpirun mdrun_mpi_d <args>
+```
 
-This requests 10 hours of runtime, to run in the current directory(`-cwd`),
-using the current environment (`-V`), running on 4 cores (`-pe ib 4`), using
-the double precision parallel version of mdrun, and where `<options>`
-represents the arguments to `mdrun`.
+This requests 10 hours of runtime, to run in the current directory `-cwd`, using the current environment `-V`, running on 4 cores `-pe ib 4`, using the double precision parallel version of mdrun, and where `<args>` represents the arguments to `mdrun` .
 
-More memory per core can be requested, 2Gb for instance, by adding the line `#$
--l h_vmem=2G` to the script. For more options look at [Batch jobs](../usage/batchjob).
+More memory per core can be requested, 2Gb for instance, by adding the line `#$ -l h_vmem=2G` to the script. You can find more submission options on the [batch job page](../../usage/batchjob.html#list-of-sge-options).
+
 The script can be submitted with:
 
-    $ qsub example_parallel.sh
+```bash
+$ qsub example_parallel.sh
+```
