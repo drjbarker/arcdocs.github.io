@@ -272,12 +272,12 @@ than viewing the graphics over the network.
 An X-server should be running on the local machine & your SSH connection should
 have X11 forwarding enabled to use the Gaussview GUI.  Documentation for
 gaining ssh access to the ARC systems is in the web pages that describe how to
-login in from each of the 3 main operating systems - [How to connect and log on to ARC3/ARC4](../getting_started/logon)
+login in from each of the 3 main operating systems - [How to connect and log on to ARC3/ARC4](../../getting_started/logon).
 
 Note the X-server needs to have 3D OpenGL extensions, most Linux/Mac X servers
 will have this functionality, however older versions of Exceed may not support
 this. Gaussview appears to work with Cygwin X-server, but has made Xming crash.
-ARC3 also has [X2Go](../getting_started/x2go) installed and this handles
+ARC3 also has [X2Go](../../getting_started/x2go) installed and this handles
 X-Windowing so that normally it provides a smooth images/animations with a no
 lag between frames and handles graphics communications without producing errors
 to your shell.
