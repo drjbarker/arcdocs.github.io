@@ -26,13 +26,13 @@ Once you have decided which solver will be best for your particular case, the fi
 
 The blockMesh file is located in the 'polymesh' directory of the 'constant' folder in the openFoam case, to build the mesh, simple type the command:
 
-```paraFoam
+```
 blockMesh
 ```
 
 into the terminal at the top of your case directory e.g. where you can see the 0, constant and system folders. This will automatically create your mesh which can then be viewed inside paraFoam. To check the quality of the mesh, type in the command:
 
-```paraFoam
+```
 checkMesh
 ```
 
@@ -61,7 +61,7 @@ From the taskbar in ICEM, select the 'boundary conditions' option under x and as
 
 To save your model ready for export, it must be in the Fluent_V6 format, solver settings and the like can remain at default and there is no need to check any additional options in the save boxes. This single model file can now be transferred into your OpenFoam case directory. To convert the file for use, type the command:
 
-```paraFoam
+```
 fluent3DMeshToFoam
 ```
 
@@ -79,7 +79,7 @@ When the geometry has been set up, either by importing or manual generation, the
 
 There is one final option which may be relevant when moving into compiling your own or modifying solvers and models, in order to add your files to the directory so that they can be recognised by OpenFOAM, the following line must be added into the controlDict below the runTimeModifiable line:
 
-```paraFoam
+```
 libs ("libs.so")
 ```
 
@@ -89,7 +89,7 @@ where "relevant extension" leads to the correct library for the application e.g.
 
 Depending upon whether you are using a RAS or LES based models, there are several files which must be present in the "constant" folder. The first of the these is general to either type of case and is called "transportDict". This contains the properties for the type of transport model relevant to the solver and the required properties of the fluid under examination. e.g. a simple example for a newtonian model requires the kinematic viscosity property in order to run:
 
-```paraFoam
+```
 transportModel Newtonian;
 
 nu                    nu [0 2 -1 0 0 0 0] 15.345e-6
@@ -127,13 +127,13 @@ The **fvSolution** file contains the solver scheme, preconditioner and tolerance
 
 Once the mesh has been successfully created and the settings for the solver established along with the run-time, the initial values for all the fields being solved need to be assigned to the appropriate location on the model. All values for the initial time step will be located in the time folder marked:
 
-```paraFoam
+```
 0
 ```
 
 A typical example of the kind of information required is presented below:
 
-```paraFoam
+```
 dimensions     [ 0 0 0 0 0 0 0 ];
 ```
 
@@ -141,25 +141,25 @@ This is the dimensionSet where the units of the value are input. The bar contain
 
 [ Mass, Length, Time, Temperature, Quantity, Current, Luminous Intensity ] all in their respective SI units, for example, if you wanted to set the units of velocity as metres per second (m/s) the bar would be set as
 
-```paraFoam
+```
 dimensions  [ 0 1 -1 0 0 0 0 ]
 ```
 
 Any unit which is not required is left as a 0. A more complete list of dimensions and their respective units can be found inside the OpenFoam user guide. It is worth noting that these exist to ensure that the values are represented in the correct magnitude/units and will cause an error if there is a mis-match between units in calculations, although it does not affect the solution numerically, it identifies that there is an inconsistensy which will have an effect. This dimension checking can be turned off in the control files located in the OpenFoam installation directory inside its control Dictionary, for a more detailed description and advice with regards to this matter, see this entry on the [OpenFoam wiki](http://openfoamwiki.net/index.php/Main_FAQ#How_does_one_turn_off_the_dimensional_checking.3F).
 
-```paraFoam
+```
 internalField uniform 0;
 ```
 
 This field assigns a value to all the cells not included in any of the boundary patches (discussed next), the keyword "uniform" means all the cells will share the identical scalar or vector value placed after it. Such examples will include:
 
-```paraFoam
+```
 internalField uniform (10 0 0)
 ```
 
 Typcially used when defining a velocity, this value will assign a magnitude of 10 to the x-direction and values of 0 to the y and z directions. These values only come into play during the '0' timestep, after which new values for all the internal cells and the boundary patches will be calculated. However it is still important to choose a sensible value for each variables, frequently a value of zero can be assigned (values such as kinetic energy in a stationary starting environment) as a starting point which the simulation will quickly alter in further timesteps should it be required.
 
-```paraFoam
+```
 boundaryField
 {
 Walls

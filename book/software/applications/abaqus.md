@@ -147,7 +147,7 @@ This will create a **restart** file (.res file extension) from which a job that 
 
 1. Activate the restart feature by adding the line:
 
-    ```abaqus
+    ```
     *restart, write
     ```
 
@@ -155,12 +155,12 @@ This will create a **restart** file (.res file extension) from which a job that 
 
 2. Run the restart analysis with
 
-    ```abaqus
+    ```
     abaqus job=jobName oldjob=oldjobName ...
     ```
 
     Where `oldJobName` is the initial input file and `newJobName` is a file which contains only the line:
 
-    ```abaqus
+    ```
         *restart, read
     ```
