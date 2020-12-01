@@ -92,7 +92,8 @@ Once started, it will print a line of the form:
     Accepting connection(s): :
 
 Please take a note of \<hostname\> and \<number\> -- they will be needed
-to connect the graphical interface.
+to connect the graphical interface. The hostname will include the specific
+login node which the server is running from.
 
 ### On a cluster login node
 
@@ -152,7 +153,7 @@ unless it is given a name.
 
 Configure your workstation's SSH client to forward local port 11111 to
 the hostname and port from the output of pvserver. On a Linux
-workstation and paraview running somewhere on arc2, this can be achieved
+workstation and paraview running somewhere on arc4, this can be achieved
 via the following command:
 
-    $ ssh -L11111:: arc2.leeds.ac.uk
+    $ ssh -L 11111:localhost:11111 login1.arc4.leeds.ac.uk
